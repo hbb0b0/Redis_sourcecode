@@ -1,4 +1,4 @@
-
+#coding:utf-8
 import time
 import unittest
 
@@ -260,7 +260,8 @@ def get_group_articles(conn, group, page, order='score:'):
 class TestCh01(unittest.TestCase):
     def setUp(self):
         import redis
-        self.conn = redis.Redis(db=15)
+        #初始化Redis连接
+        self.conn = redis.Redis(host='localhost', port=6379,password=123456,db=15)
 
     def tearDown(self):
         del self.conn
